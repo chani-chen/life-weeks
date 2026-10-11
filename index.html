@@ -29,13 +29,15 @@
   --lived:#8fa8ae; --empty:#202b2e; --emptyLine:#34454a; --accent:#5fb8ac; --accent-ink:#0e1a19;
   --now:#ff8a3d; --milestone:#ec6a5f; --special:#f3c443; --landmark:#6aa6e6; color-scheme:dark}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
   background-size:24px 24px;background-attachment:fixed}
 .wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:28px 48px}
 header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;margin-bottom:22px}
 h1{font-family:var(--f-display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.1;margin:0;text-wrap:balance}
-.lede{margin:6px 0 0;color:var(--muted);max-width:60ch}
+.lede{margin:6px 0 0;color:var(--muted)}
+.lede span{display:block}
 header.top{flex-direction:column;align-items:stretch}
 .pillars{list-style:none;margin:4px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);background:var(--sheet)}
 .pillars li{padding:10px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
@@ -43,6 +45,24 @@ header.top{flex-direction:column;align-items:stretch}
 .pillars b{font-family:var(--f-display);font-size:19px}
 .pillars span{font-size:13px;color:var(--muted)}
 @media (max-width:640px){.pillars{grid-template-columns:minmax(0,1fr)}.pillars li+li{border-left:none;border-top:1px solid var(--line)}}
+.kinds{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.6fr);gap:12px 20px;align-items:start;padding:12px 14px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.kinds-head h2{font-family:var(--f-display);font-size:19px;margin:0}
+.kinds-head p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+.kinds-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.kinds-list li{display:flex;flex-direction:column;gap:2px;min-width:0;font-size:13px}
+.kinds-list b{font-size:14px}
+.kinds-list span{color:var(--muted)}
+@media (max-width:900px){.kinds{grid-template-columns:minmax(0,1fr)}.kinds-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.kinds-list{grid-template-columns:minmax(0,1fr)}}
+.taskpie{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 24px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.taskpie h3{grid-column:1/-1;margin:0;font-family:var(--f-display);font-size:18px;font-weight:700}
+.taskpie svg{width:180px;height:180px;display:block}
+.taskpie table{border-collapse:collapse;font-size:13.5px;width:100%;max-width:360px}
+.taskpie td{padding:4px 8px 4px 0;border-bottom:1px solid var(--line)}
+.taskpie td.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.taskpie i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.taskpie .note{grid-column:1/-1;font-size:12.5px;color:var(--muted);margin:0}
+@media (max-width:520px){.taskpie{grid-template-columns:minmax(0,1fr)}.taskpie svg{margin:0 auto}}
 .vision{font-family:var(--f-display);font-size:17px;line-height:1.6;margin:0;padding:8px 12px;border-left:3px solid var(--landmark);background:var(--paper);border-radius:0 4px 4px 0;overflow-wrap:anywhere}
 .vision small{display:block;font-family:var(--f-body);font-size:12px;color:var(--muted)}
 textarea{font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:7px 9px;width:100%;min-width:0;resize:vertical;min-height:4.5em}
@@ -86,6 +106,14 @@ label.chk input{width:16px;height:16px;margin:3px 0 0;flex:none;accent-color:var
 .seg-l{font-size:12.5px;color:var(--muted);margin-right:4px}
 .seg button{font-size:13px;padding:4px 12px;border-radius:999px}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--sheet);border-color:var(--ink)}
+.journal{display:flex;flex-direction:column;gap:8px;padding:12px 14px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.j-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.journal h3{margin:0;font-family:var(--f-display);font-size:18px}
+.j-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:8px 12px}
+.j-actions{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:8px}
+@media (max-width:560px){.j-form{grid-template-columns:minmax(0,1fr)}}
+.j-sum{margin:0;font-size:13px;color:var(--muted)}
+.j-sum b{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
 .rq-h{font-size:12.5px;font-weight:700;color:var(--accent);margin:10px 0 2px;letter-spacing:.08em}
 .swatches{display:flex;flex-wrap:wrap;gap:6px}
 .swatches button{width:26px;height:26px;padding:0;border-radius:3px;border:2px solid transparent}
@@ -119,13 +147,25 @@ footer a{color:var(--accent)}
   <header class="top">
     <div>
       <h1>人生週曆</h1>
-      <p class="lede">一列是一年，一格是一週。以 90 歲計算，一生約有 4,680 格。這張週曆不是用來催促自己，而是陪你看清楚走過的路，也好好決定接下來的格子要怎麼用。</p>
+      <p class="lede"><span>一列是一年，一格是一週；以 90 歲計算，一生約有 4,680 格。</span><span>這張週曆不是用來催促自己，而是希望陪你看清楚走過的路，也好好發想接下來的日子想怎麼過。</span></p>
     </div>
     <ol class="pillars" aria-label="三個核心意涵">
-      <li><b>以終為始</b><span>先想好希望走向哪裡，再回頭安排現在。</span></li>
-      <li><b>負責任的決定</b><span>每一格都是選擇，考量自己、他人與後果。</span></li>
-      <li><b>自我照顧</b><span>休息與照顧自己的週，同樣值得留在格子裡。</span></li>
+      <li><b>以終為始</b><span>想好期盼走向哪裡，把一部分的格子留給未來的自己與他人。</span></li>
+      <li><b>負責任的決定</b><span>每個當下都是一次選擇，發現自己卡住時，就是做新決定的時候。</span></li>
+      <li><b>自我照顧</b><span>好好享受、好好休息的時刻，本身就有價值。</span></li>
     </ol>
+    <section class="kinds" aria-labelledby="kindsTitle">
+      <div class="kinds-head">
+        <h2 id="kindsTitle">一週的四種樣子</h2>
+        <p>每一週都像一顆小寶石。好好使用它的方式有兩種：好好享受這一週，或為未來投入。</p>
+      </div>
+      <ul class="kinds-list">
+        <li><b>🌿 享受當下</b><span>休息、玩樂、陪伴重要的人。</span></li>
+        <li><b>🌱 為未來播種</b><span>學習、工作、準備、照顧他人。</span></li>
+        <li><b>✨ 兩者兼具</b><span>做喜歡又有意義的事，最理想的週。</span></li>
+        <li><b>🪨 卡住的週</b><span>既不快樂，也沒有往前。這不是失敗，是提醒自己停下來看看：需要休息、需要幫忙，還是需要做一個新的決定？</span></li>
+      </ul>
+    </section>
   </header>
 
   <div class="grid">
@@ -151,11 +191,23 @@ footer a{color:var(--accent)}
         <p class="hint">用顏色標出走過的時期，例如求學、第一份工作、育兒期。也可以先畫上想經營的下一段，未來的階段會以空心框顯示。</p>
         <ul class="list" id="stageList"></ul>
         <label for="stName">階段名稱<input id="stName" type="text" maxlength="20" placeholder="例如：研究所"></label>
-        <div class="row">
+        <div class="seg sm" role="group" aria-label="階段時間的填法">
+          <span class="seg-l">時間怎麼填</span>
+          <button type="button" id="stByDate" aria-pressed="true">填日期</button>
+          <button type="button" id="stByAge" aria-pressed="false">填年紀</button>
+        </div>
+        <div class="row" id="stDateBox">
           <label for="stStart">開始<input id="stStart" type="date"></label>
           <label for="stEnd">結束<input id="stEnd" type="date"></label>
         </div>
-        <label for="stDomain">人生領域（選填，切換「依人生領域」上色時使用）<select id="stDomain"></select></label>
+        <div id="stAgeBox" hidden>
+          <div class="row">
+            <label for="stAgeFrom">從幾歲起<input id="stAgeFrom" type="number" min="0" max="120" inputmode="numeric" placeholder="例如 18"></label>
+            <label for="stAgeTo">到幾歲前<input id="stAgeTo" type="number" min="1" max="120" inputmode="numeric" placeholder="例如 22"></label>
+          </div>
+          <p class="hint">「18 歲起、22 歲前」代表從 18 歲生日到 22 歲生日的前一天。之後若修改出生日期，會自動跟著調整。</p>
+        </div>
+        <label for="stDomain">人生任務（選填，切換「依人生任務」時使用）<select id="stDomain"></select></label>
         <div class="swatches" id="swatches" role="group" aria-label="階段顏色"></div>
         <button type="button" id="btnStage">加入階段</button>
         <p class="msg" id="stMsg" aria-live="polite"></p>
@@ -168,8 +220,24 @@ footer a{color:var(--accent)}
         <div class="ex" id="exChips"></div>
         <ul class="list" id="eventList"></ul>
         <label for="evName">事件名稱<input id="evName" type="text" maxlength="30" placeholder="例如：🎓 碩士畢業"></label>
+        <div class="seg sm" role="group" aria-label="事件時間的填法">
+          <span class="seg-l">時間怎麼填</span>
+          <button type="button" id="evByDate" aria-pressed="true">填日期</button>
+          <button type="button" id="evByAge" aria-pressed="false">填年紀</button>
+        </div>
+        <div id="evAgeBox" hidden>
+          <div class="row">
+            <label for="evAge">幾歲時<input id="evAge" type="number" min="0" max="120" inputmode="numeric" placeholder="例如 24"></label>
+            <label for="evSeg">大約在那一年的<select id="evSeg">
+              <option value="early">前段（生日後不久）</option>
+              <option value="mid" selected>中段／不確定</option>
+              <option value="late">後段（下次生日前）</option>
+            </select></label>
+          </div>
+          <p class="hint">用年紀填寫的事件，會標示為「約 24 歲」。之後若修改出生日期，會自動跟著調整。</p>
+        </div>
         <div class="row3">
-          <label for="evDate">日期<input id="evDate" type="date"></label>
+          <label for="evDate" id="evDateLbl">日期<input id="evDate" type="date"></label>
           <label for="evType">類型<select id="evType">
             <option value="milestone">里程碑</option>
             <option value="special">特殊事件</option>
@@ -183,7 +251,7 @@ footer a{color:var(--accent)}
 
       <div class="sec">
         <h2>保存與繼續編輯</h2>
-        <p class="hint">資料只存在這個分頁，不會上傳到任何地方。關閉頁面前，請先匯出 Excel 檔；下次回來時匯入，就能接著編輯。也可以直接在 Excel 裡新增或修改階段與事件，再匯入。</p>
+        <p class="hint">資料只存在這個分頁，不會上傳到任何地方。關閉頁面前，請先匯出 Excel 檔；下次回來時匯入，就能接著編輯。Excel 裡附有未來 52 週的空白週誌表，習慣用試算表的人可以直接在 Excel 裡寫週誌，再匯入。</p>
         <div class="row">
           <button type="button" id="btnXlsx">匯出 Excel</button>
           <button type="button" id="btnImport">匯入 Excel</button>
@@ -208,17 +276,38 @@ footer a{color:var(--accent)}
       <div class="seg" role="group" aria-label="上色方式">
         <span class="seg-l">上色方式</span>
         <button type="button" id="modeStage" aria-pressed="true">依人生階段</button>
-        <button type="button" id="modeDomain" aria-pressed="false">依人生領域</button>
+        <button type="button" id="modeDomain" aria-pressed="false">依人生任務</button>
       </div>
       <div class="legend" id="legend"></div>
+      <div class="taskpie" id="taskPie" hidden></div>
       <div class="canvas-box"><canvas id="cv" tabindex="0" aria-label="人生週曆方格，點選任一格查看該週日期"></canvas></div>
       <div class="tip" id="tip" aria-live="polite">點選任一格，查看那一週是幾歲、哪幾天，以及當時的階段或事件。每一格空心的未來，都是可以由自己做決定的一週。</div>
+      <section class="journal" aria-labelledby="jHead">
+        <div class="j-top">
+          <h3 id="jHead">週誌</h3>
+          <button type="button" id="btnNow">跳到本週</button>
+        </div>
+        <p class="hint" id="jWhich">點選週曆上的任一週，就能為那一週寫下週誌。寫過週誌的格子，右下角會出現小圓點。</p>
+        <div class="j-form" id="jForm" hidden>
+          <label for="jKind">這週主要的樣子<select id="jKind">
+            <option value="">（尚未選擇）</option>
+            <option value="enjoy">🌿 享受當下</option>
+            <option value="sow">🌱 為未來播種</option>
+            <option value="both">✨ 兩者兼具</option>
+            <option value="stuck">🪨 卡住的週</option>
+          </select></label>
+          <label for="jLine">這週的一句話<input id="jLine" type="text" maxlength="100" placeholder="例如：雖然很忙，還是陪家人散了一次步。"></label>
+          <div class="j-actions"><span class="msg" id="jMsg" aria-live="polite"></span><button type="button" class="link" id="jClear">清除這週的週誌</button></div>
+        </div>
+        <p class="j-sum" id="jSum"></p>
+      </section>
       <div class="opts">
-        <label class="chk" for="optHideEv"><input id="optHideEv" type="checkbox">圖檔中隱藏事件名稱（只留顏色與表情符號，方便分享）</label>
-        <label class="chk" for="optQs"><input id="optQs" type="checkbox">圖檔下方附上反思題目與書寫線</label>
+        <label class="chk" for="optHideEv"><input id="optHideEv" type="checkbox">PDF 中隱藏事件名稱（只留顏色與表情符號，方便分享）</label>
+        <label class="chk" for="optQs"><input id="optQs" type="checkbox">PDF 附上反思題目與書寫線（印出來可直接手寫）</label>
+        <label class="chk" for="optJournal"><input id="optJournal" type="checkbox">PDF 附上週誌紀錄</label>
       </div>
       <div class="actions">
-        <button class="primary" type="button" id="btnPng">下載週曆圖檔（PNG）</button>
+        <button class="primary" type="button" id="btnPng">下載週曆（PDF）</button>
         <span class="msg" id="dlMsg" aria-live="polite"></span>
       </div>
       <div id="reflectBox">
@@ -226,10 +315,11 @@ footer a{color:var(--accent)}
       </div>
     </main>
   </div>
-  <footer>概念出自 Wait But Why〈Your Life in Weeks〉，繁體中文作法參考<a href="https://www.playpcesor.com/2019/01/your-life-in-weeks-calendar.html" target="_blank" rel="noopener">電腦玩物〈畫出一生的週行事曆〉</a>。</footer>
+  <footer>概念出自 Tim Urban〈<a href="https://waitbutwhy.com/2014/05/life-weeks.html" target="_blank" rel="noopener">Your Life in Weeks</a>〉（Wait But Why，2014）；繁體中文作法參考<a href="https://www.playpcesor.com/2019/01/your-life-in-weeks-calendar.html" target="_blank" rel="noopener">電腦玩物〈畫出一生的週行事曆〉</a>。</footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 (function(){
 const DAY=864e5, WEEK=7*DAY;
@@ -267,14 +357,15 @@ function eduStages(birth){
   // 依學年度（8/1 – 隔年 7/31）銜接，各階段之間不留空檔
   const s=(yr)=>`${yr}-08-01`, e=(yr)=>`${yr}-07-31`;
   return [
-    {name:"學齡前",start:birth,end:e(entry),color:SWATCHES[0],domain:"家庭"},
-    {name:"國小",start:s(entry),end:e(entry+6),color:SWATCHES[1],domain:"學習成長"},
-    {name:"國中",start:s(entry+6),end:e(entry+9),color:SWATCHES[2],domain:"學習成長"},
-    {name:"高中職",start:s(entry+9),end:e(entry+12),color:SWATCHES[3],domain:"學習成長"},
-    {name:"大學",start:s(entry+12),end:e(entry+16),color:SWATCHES[4],domain:"學習成長"}
+    {name:"學齡前",start:birth,end:e(entry),color:SWATCHES[0],domain:"關係"},
+    {name:"國小",start:s(entry),end:e(entry+6),color:SWATCHES[1],domain:"學習"},
+    {name:"國中",start:s(entry+6),end:e(entry+9),color:SWATCHES[2],domain:"學習"},
+    {name:"高中職",start:s(entry+9),end:e(entry+12),color:SWATCHES[3],domain:"學習"},
+    {name:"大學",start:s(entry+12),end:e(entry+16),color:SWATCHES[4],domain:"學習"}
   ];
 }
 S.stages=eduStages(S.birth).concat([{name:"工作",start:"2012-08-06",end:"2035-07-31",color:SWATCHES[7],domain:"工作"}]);
+S.journal={};
 
 /* ---------- life math ---------- */
 function geo(){
@@ -307,10 +398,10 @@ function palette(forExport){
   const cs=getComputedStyle(document.documentElement), g=n=>cs.getPropertyValue("--"+n).trim();
   return {empty:g("empty"),emptyLine:g("emptyLine"),lived:g("lived"),now:g("now"),ink:g("ink"),muted:g("muted"),milestone:g("milestone"),special:g("special"),landmark:g("landmark"),paper:g("sheet"),line:g("line")};
 }
-const DOMAINS={
-  "身體健康":"#c3db94","學習成長":"#b6c4ec","心靈信仰":"#d7b6e2","家庭":"#f3c3a2",
-  "工作":"#d3c6a1","自我照顧":"#9fd3c7","人際社群":"#eaa8ba","影響貢獻":"#99bfdc"
-};
+const DOMAINS={"學習":"#6250d6","工作":"#1baf7a","關係":"#e87ba4","休息":"#008300"};
+/* 舊版八類名稱（匯入舊檔時自動轉換） */
+const DOMAIN_ALIAS={"學習成長":"學習","工作":"工作","家庭":"關係","人際社群":"關係","身體健康":"休息","自我照顧":"休息","生活習慣":"休息","心靈信仰":"休息","影響貢獻":"工作","健康與自我照顧":"休息"};
+function normTask(t){t=String(t||"").trim();return DOMAINS[t]?t:(DOMAIN_ALIAS[t]||"");}
 function stageColor(s){
   if(!s) return null;
   if(S.mode==="domain") return s.domain&&DOMAINS[s.domain] ? DOMAINS[s.domain] : null;
@@ -323,7 +414,22 @@ function legendItems(){
   }
   return S.stages.map(s=>[s.color,s.name]);
 }
-function evDateText(e,sep){const t=parse(e.date);return e.approx? "約 "+fmt(t,sep).slice(0,7) : fmt(t,sep);}
+function evDateText(e,sep){
+  if(e.age!=null) return `約 ${e.age} 歲`+(e.seg==="early"?"（前段）":e.seg==="late"?"（後段）":"");
+  const t=parse(e.date);return e.approx? "約 "+fmt(t,sep).slice(0,7) : fmt(t,sep);
+}
+function stageRangeText(s){
+  return s.startAge!=null ? `${s.startAge} 歲起 → ${s.endAge} 歲前` : `${s.start} → ${s.end}`;
+}
+/* 年紀換算日期：以出生日期為準，修改生日時重新計算 */
+function bdayFor(birthISO,a){const d=new Date(parse(birthISO));return Date.UTC(d.getUTCFullYear()+a,d.getUTCMonth(),d.getUTCDate());}
+const SEG_WEEK={early:2,mid:26,late:48};
+function ageToDate(birthISO,age,seg){return fmt(bdayFor(birthISO,age)+(SEG_WEEK[seg]??26)*WEEK);}
+function recomputeAges(st){
+  st.events.forEach(e=>{ if(e.age!=null) e.date=ageToDate(st.birth,e.age,e.seg); });
+  st.stages.forEach(s=>{ if(s.startAge!=null){ s.start=fmt(bdayFor(st.birth,s.startAge)); s.end=fmt(bdayFor(st.birth,s.endAge)-DAY); } });
+}
+function ageNum(v){ if(v===""||v==null) return null; const n=Number(String(v).replace(/歲/g,"").trim()); return Number.isInteger(n)&&n>=0&&n<=120 ? n : null; }
 const EMOJI_RE=/\p{Extended_Pictographic}/u;
 const seg=(typeof Intl!=="undefined"&&Intl.Segmenter)?new Intl.Segmenter("zh-Hant",{granularity:"grapheme"}):null;
 function emojiOf(name){
@@ -387,6 +493,9 @@ function drawGrid(ctx,M,P,x0,y0,cell,gap,labelFont){
         hollow(x,y,P.emptyLine);
       }
       if(e) emojiAt(x,y,emojiOf(e.name));
+      if(S.journal&&S.journal[k]){ const r=Math.max(1.6,cell*0.17), dx=x+cell-r-Math.max(.5,cell*.06), dy=y+cell-r-Math.max(.5,cell*.06);
+        ctx.beginPath(); ctx.arc(dx,dy,r+Math.max(.8,cell*.06),0,2*Math.PI); ctx.fillStyle=P.paper; ctx.fill();
+        ctx.beginPath(); ctx.arc(dx,dy,r,0,2*Math.PI); ctx.fillStyle=P.ink; ctx.fill(); }
     }
   }
   // 本週最後才畫，外框不會被相鄰格子蓋住
@@ -398,7 +507,7 @@ function drawGrid(ctx,M,P,x0,y0,cell,gap,labelFont){
   return y0+M.N*step+Math.floor((M.N-1)/10)*gap*2;
 }
 
-const cv=$("cv"); let layout=null;
+const cv=$("cv"); let layout=null, selCell=null;
 function renderScreen(){
   const M=model(), P=palette(false);
   const box=cv.parentElement, avail=box.clientWidth;
@@ -413,6 +522,8 @@ function renderScreen(){
   const ctx=cv.getContext("2d"); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
   drawGrid(ctx,M,P,labelW,top,cell,gap,`${Math.max(9,cell)}px "IBM Plex Mono",monospace`);
   layout={M,x0:labelW,y0:top,cell,gap};
+  if(selCell&&selCell.a<M.N){ const x=labelW+selCell.w*step, y=top+selCell.a*step+Math.floor(selCell.a/10)*gap*2, o=gap/2+1;
+    ctx.lineWidth=2; ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue("--accent").trim()||"#2f7d74"; ctx.strokeRect(x-o,y-o,cell+2*o,cell+2*o); }
 }
 
 function hitTest(px,py){
@@ -432,9 +543,29 @@ function showTip(c){
   if(isNow){const b=document.createElement("strong");b.textContent="　← 本週";head.appendChild(b);}
   t.appendChild(head);
   const bits=[]; if(s)bits.push("階段："+s.name+(s.domain?`（${s.domain}）`:""));
-  evs.forEach(e=>bits.push(TYPE_LABEL[e.type]+"："+e.name+(e.approx?"（日期為大約）":"")));
+  evs.forEach(e=>bits.push(TYPE_LABEL[e.type]+"："+e.name+(e.age!=null?`（依年紀填寫，${evDateText(e)}）`:e.approx?"（日期為大約）":"")));
   if(!bits.length) bits.push(M.nowCell&&k>M.nowCell.a*52+M.nowCell.w ? "還沒到來的一週，可以由自己決定怎麼用。" : "沒有標記。");
   const d=document.createElement("div"); d.textContent=bits.join("　｜　"); t.appendChild(d);
+  selCell={a:c.a,w:c.w}; openJournal(c); renderScreen();
+}
+function openJournal(c){
+  const k=c.a*52+c.w, j=(S.journal||{})[k]||{}, G=geo();
+  $("jWhich").textContent=`${c.a} 歲第 ${c.w+1} 週（${fmt(G.cellStart(c.a,c.w),"/")} – ${fmt(G.cellEnd(c.a,c.w),"/")}）的週誌。內容會自動記下，離開前記得匯出 Excel 保存。`;
+  $("jForm").hidden=false; $("jKind").value=j.kind||""; $("jLine").value=j.line||""; $("jMsg").textContent="";
+}
+function saveJournal(){
+  if(!selCell) return; const k=selCell.a*52+selCell.w;
+  const kind=$("jKind").value, line=$("jLine").value.trim();
+  S.journal=S.journal||{};
+  if(!kind&&!line) delete S.journal[k]; else S.journal[k]={kind,line};
+  isSample=false; $("jMsg").textContent="已記下。"; renderJSum(); $("sampleBadge").hidden=true;
+  clearTimeout(saveJournal.t); saveJournal.t=setTimeout(renderScreen,250);
+}
+function renderJSum(){
+  const {n,c}=journalStats(), el=$("jSum"); el.textContent="";
+  if(!n){el.textContent="還沒有週誌。可以從本週開始，每週日花三分鐘寫下一句話。";return;}
+  el.append("已寫 "); const b=document.createElement("b"); b.textContent=n; el.append(b," 週週誌　");
+  Object.keys(KINDS).forEach(key=>{ el.append(KINDS[key]+" "); const x=document.createElement("b"); x.textContent=c[key]; el.append(x,"　"); });
 }
 
 /* ---------- header, stats, legend ---------- */
@@ -454,15 +585,82 @@ function renderInfo(){
   const lg=$("legend"); lg.innerHTML="";
   const add=(color,text)=>{const s=document.createElement("span");const i=document.createElement("i");i.style.background=color;s.appendChild(i);s.appendChild(document.createTextNode(text));lg.appendChild(s);};
   const note=document.createElement("span"); note.style.color="var(--ink)"; note.textContent="實心＝已走過　空心＝未來"; lg.appendChild(note);
-  add("var(--lived)",S.mode==="domain"?"已走過（未指定領域）":"已走過（未標階段）"); add("var(--now)","本週"); add("var(--milestone)","里程碑"); add("var(--special)","特殊事件"); add("var(--landmark)","未來地標");
+  add("var(--lived)",S.mode==="domain"?"已走過（未指定任務）":"已走過（未標階段）"); add("var(--now)","本週"); add("var(--milestone)","里程碑"); add("var(--special)","特殊事件"); add("var(--landmark)","未來地標");
   legendItems().forEach(([c,t])=>add(c,t));
-  if(S.mode==="domain"&&!legendItems().length){const s=document.createElement("span");s.textContent="（目前沒有階段指定人生領域）";lg.appendChild(s);}
+  if(S.mode==="domain"&&!legendItems().length){const s=document.createElement("span");s.textContent="（目前沒有階段指定人生任務）";lg.appendChild(s);}
   $("sampleBadge").hidden=!isSample;
+  renderPie();
   $("modeStage").setAttribute("aria-pressed",S.mode==="stage"?"true":"false");
   $("modeDomain").setAttribute("aria-pressed",S.mode==="domain"?"true":"false");
 }
 
 /* ---------- lists ---------- */
+/* ---------- 週誌 ---------- */
+const KINDS={enjoy:"🌿 享受當下",sow:"🌱 為未來播種",both:"✨ 兩者兼具",stuck:"🪨 卡住的週"};
+function kindFromText(t){t=String(t||"");return /享受/.test(t)?"enjoy":/播種/.test(t)?"sow":/兼具/.test(t)?"both":/卡住/.test(t)?"stuck":"";}
+function locateFor(birthISO,t){
+  const b=parse(birthISO); if(t==null||t<b) return null;
+  let a=new Date(t).getUTCFullYear()-new Date(b).getUTCFullYear(); if(t<bdayFor(birthISO,a)) a--;
+  let w=Math.floor((t-bdayFor(birthISO,a))/WEEK); if(w>51) w=51; return {a,w};
+}
+function journalStats(){
+  const c={enjoy:0,sow:0,both:0,stuck:0}; let n=0;
+  Object.values(S.journal||{}).forEach(j=>{n++; if(c[j.kind]!=null) c[j.kind]++;});
+  return {n,c};
+}
+
+/* ---------- 人生任務：已走過的週數分配 ---------- */
+const UNSET_COLOR="#9aa6a8";
+function taskStats(){
+  const M=model(), keys=Object.keys(DOMAINS), lived={}, plan={};
+  keys.concat("未指定").forEach(k=>{lived[k]=0;plan[k]=0;});
+  const nowK=M.nowCell? M.nowCell.a*52+M.nowCell.w : 0;
+  for(let a=0;a<M.N;a++) for(let w=0;w<52;w++){
+    const k=a*52+w, s=M.stageAt(a,w), t=s&&DOMAINS[s.domain]?s.domain:"未指定";
+    if(k<nowK) lived[t]++; else if(t!=="未指定") plan[t]++;
+  }
+  return {keys,lived,plan,total:nowK};
+}
+function pieSlices(stats){
+  const out=[]; let acc=0;
+  stats.keys.concat("未指定").forEach(k=>{const v=stats.lived[k]; if(!v) return; const f=v/stats.total; out.push({k,v,f,a0:acc*2*Math.PI,a1:(acc+f)*2*Math.PI,color:k==="未指定"?UNSET_COLOR:DOMAINS[k]}); acc+=f;});
+  return out;
+}
+function renderPie(){
+  const box=$("taskPie");
+  if(S.mode!=="domain"){box.hidden=true;return;}
+  box.hidden=false; box.textContent="";
+  const st=taskStats(), sl=pieSlices(st);
+  const h=document.createElement("h3"); h.textContent=`已走過的 ${st.total.toLocaleString()} 週，花在哪些人生任務`; box.appendChild(h);
+  const NS="http://www.w3.org/2000/svg", svg=document.createElementNS(NS,"svg"); svg.setAttribute("viewBox","0 0 180 180"); svg.setAttribute("role","img");
+  svg.setAttribute("aria-label","人生任務圓餅圖："+sl.map(x=>`${x.k} ${Math.round(x.f*100)}%`).join("、"));
+  const cx=90,cy=90,r=84;
+  sl.forEach(x=>{
+    let el;
+    if(x.f>=0.9999){el=document.createElementNS(NS,"circle");el.setAttribute("cx",cx);el.setAttribute("cy",cy);el.setAttribute("r",r);}
+    else{const p0=[cx+r*Math.sin(x.a0),cy-r*Math.cos(x.a0)],p1=[cx+r*Math.sin(x.a1),cy-r*Math.cos(x.a1)],large=(x.a1-x.a0)>Math.PI?1:0;
+      el=document.createElementNS(NS,"path");el.setAttribute("d",`M${cx},${cy} L${p0[0].toFixed(2)},${p0[1].toFixed(2)} A${r},${r} 0 ${large} 1 ${p1[0].toFixed(2)},${p1[1].toFixed(2)} Z`);}
+    el.setAttribute("fill",x.color); el.setAttribute("stroke","var(--paper)"); el.setAttribute("stroke-width","2"); el.setAttribute("stroke-linejoin","round");
+    const t=document.createElementNS(NS,"title"); t.textContent=`${x.k}：${x.v.toLocaleString()} 週（${(x.f*100).toFixed(1)}%）`; el.appendChild(t);
+    svg.appendChild(el);
+  });
+  if(!sl.length){const c=document.createElementNS(NS,"circle");c.setAttribute("cx",cx);c.setAttribute("cy",cy);c.setAttribute("r",r);c.setAttribute("fill","none");c.setAttribute("stroke","var(--line)");c.setAttribute("stroke-width","2");svg.appendChild(c);}
+  box.appendChild(svg);
+  const tb=document.createElement("table"); const body=document.createElement("tbody");
+  st.keys.concat("未指定").forEach(k=>{
+    const v=st.lived[k]; if(k==="未指定"&&!v) return;
+    const tr=document.createElement("tr");
+    const c1=document.createElement("td"); const i=document.createElement("i"); i.style.background=k==="未指定"?UNSET_COLOR:DOMAINS[k]; c1.appendChild(i); c1.appendChild(document.createTextNode(k));
+    const c2=document.createElement("td"); c2.className="n"; c2.textContent=v.toLocaleString()+" 週";
+    const c3=document.createElement("td"); c3.className="n"; c3.textContent=st.total?(v/st.total*100).toFixed(1)+"%":"–";
+    tr.append(c1,c2,c3); body.appendChild(tr);
+  });
+  tb.appendChild(body); box.appendChild(tb);
+  const note=document.createElement("p"); note.className="note";
+  const planned=st.keys.filter(k=>st.plan[k]).map(k=>`${k} ${st.plan[k].toLocaleString()} 週`);
+  note.textContent=(st.lived["未指定"]?"「未指定」是還沒選擇人生任務的階段或空檔。在左側階段列表中替每個階段選擇任務即可。":"")+(planned.length?`未來已規劃：${planned.join("、")}。`:"");
+  if(note.textContent) box.appendChild(note);
+}
 function renderLists(){
   const sl=$("stageList"); sl.innerHTML="";
   if(!S.stages.length){const p=document.createElement("p");p.className="empty";p.textContent="還沒有階段。";sl.appendChild(p);}
@@ -470,9 +668,9 @@ function renderLists(){
     const li=document.createElement("li");li.className="item";
     li.innerHTML=`<span class="sw"></span><span class="t"></span><button type="button">刪除</button>`;
     li.querySelector(".sw").style.background=s.color;
-    const t=li.querySelector(".t");t.textContent=s.name;const d=document.createElement("span");d.className="d";d.textContent=`${s.start} → ${s.end}`;t.appendChild(d);
-    const ds=document.createElement("select"); ds.className="dom"; ds.id="dom"+i; ds.setAttribute("aria-label",s.name+" 的人生領域");
-    ds.innerHTML=`<option value="">人生領域：未指定</option>`+Object.keys(DOMAINS).map(k=>`<option value="${k}">人生領域：${k}</option>`).join("");
+    const t=li.querySelector(".t");t.textContent=s.name;const d=document.createElement("span");d.className="d";d.textContent=stageRangeText(s);t.appendChild(d);
+    const ds=document.createElement("select"); ds.className="dom"; ds.id="dom"+i; ds.setAttribute("aria-label",s.name+" 的人生任務");
+    ds.innerHTML=`<option value="">人生任務：未指定</option>`+Object.keys(DOMAINS).map(k=>`<option value="${k}">人生任務：${k}</option>`).join("");
     ds.value=s.domain||""; ds.onchange=()=>{s.domain=ds.value;isSample=false;renderInfo();renderScreen();};
     t.appendChild(ds);
     li.querySelector("button").setAttribute("aria-label","刪除階段 "+s.name);
@@ -493,7 +691,7 @@ function renderLists(){
   });
 }
 
-function renderAll(){renderInfo();renderLists();renderReflect();renderScreen();}
+function renderAll(){renderInfo();renderLists();renderReflect();renderJSum();renderScreen();}
 function touch(){isSample=false;renderAll();}
 
 /* ---------- controls ---------- */
@@ -501,7 +699,12 @@ const yrs=$("inYears"); for(let y=60;y<=120;y+=5){const o=document.createElement
 $("inName").value=S.name; $("inBirth").value=S.birth; yrs.value=S.years;
 $("inBirth").max=fmt(TODAY);
 $("inName").addEventListener("input",e=>{S.name=e.target.value.trim();isSample=false;renderInfo();});
-$("inBirth").addEventListener("change",e=>{const t=parse(e.target.value);if(t==null||t>TODAY){e.target.value=S.birth;return;}S.birth=e.target.value;touch();});
+$("inBirth").addEventListener("change",e=>{const t=parse(e.target.value);if(t==null||t>TODAY){e.target.value=S.birth;return;}S.birth=e.target.value;recomputeAges(S);touch();});
+let stAge=false, evAge=false;
+function setStMode(on){stAge=on;$("stByDate").setAttribute("aria-pressed",String(!on));$("stByAge").setAttribute("aria-pressed",String(on));$("stDateBox").hidden=on;$("stAgeBox").hidden=!on;}
+function setEvMode(on){evAge=on;$("evByDate").setAttribute("aria-pressed",String(!on));$("evByAge").setAttribute("aria-pressed",String(on));$("evAgeBox").hidden=!on;$("evDateLbl").hidden=on;$("evApprox").parentElement.hidden=on;}
+$("stByDate").onclick=()=>setStMode(false); $("stByAge").onclick=()=>setStMode(true);
+$("evByDate").onclick=()=>setEvMode(false); $("evByAge").onclick=()=>setEvMode(true);
 yrs.addEventListener("change",e=>{S.years=+e.target.value;touch();});
 
 $("stDomain").innerHTML=`<option value="">未指定</option>`+Object.keys(DOMAINS).map(k=>`<option value="${k}">${k}</option>`).join("");
@@ -513,15 +716,18 @@ function questions(){
   return [
     ["以終為始",[
       `想像 ${age} 歲的我回頭看這張週曆，最希望看見哪些格子？`,
-      "離下一個地標還有幾週？這些格子需要先保留給什麼？"]],
+      "離下一個地標還有幾週？這些格子需要先保留給什麼？",
+      "最近這段時間，我把多少格子用來「為未來播種」？是在為誰播種？"]],
     ["負責任的決定",[
       "走過的格子裡，哪一個決定改變了後來的方向？當時我考慮了哪些人和後果？",
       "接下來要做的決定，會影響哪些人？哪個選擇對自己和他人都比較好？",
-      "這一週，我願意為哪一件重要的事負起責任？"]],
+      "這一週，我願意為哪一件重要的事負起責任？",
+      "最近有沒有「卡住的週」？是什麼讓我卡住？我可以做的第一個小決定、跨出的第一小步是什麼？"]],
     ["自我照顧",[
       "在比較辛苦的時期，是什麼（或誰）支持我走過來？",
       "休息的週不是浪費的格子。最近一次好好照顧自己，是哪一週？",
-      "接下來的格子，我要留哪些時間給休息、身體和重要的人？"]]
+      "接下來的格子，我要留哪些時間給休息、身體和重要的人？",
+      "最近一次「好好享受」的一週，是哪一週？我做了什麼？"]]
   ];
 }
 function renderReflect(){
@@ -541,13 +747,23 @@ const sw=$("swatches");
 SWATCHES.forEach((c,i)=>{const b=document.createElement("button");b.type="button";b.style.background=c;b.setAttribute("aria-label","顏色 "+(i+1));b.setAttribute("aria-pressed",i===0?"true":"false");b.onclick=()=>{pickedSwatch=i;[...sw.children].forEach((x,j)=>x.setAttribute("aria-pressed",j===i?"true":"false"));};sw.appendChild(b);});
 
 $("btnStage").onclick=()=>{
-  const n=$("stName").value.trim(), a=$("stStart").value, b=$("stEnd").value, m=$("stMsg");
+  const n=$("stName").value.trim(), m=$("stMsg");
   if(!n){m.textContent="請輸入階段名稱。";return;}
-  if(!parse(a)||!parse(b)){m.textContent="請填寫開始與結束日期。";return;}
-  if(parse(b)<parse(a)){m.textContent="結束日期要晚於開始日期。";return;}
-  S.stages.push({name:n,start:a,end:b,color:SWATCHES[pickedSwatch],domain:$("stDomain").value});
+  const st={name:n,color:SWATCHES[pickedSwatch],domain:$("stDomain").value};
+  if(stAge){
+    const x=ageNum($("stAgeFrom").value), y=ageNum($("stAgeTo").value);
+    if(x==null||y==null){m.textContent="請填寫開始與結束的年紀（0 到 120 的整數）。";return;}
+    if(y<=x){m.textContent="「到幾歲前」要大於「從幾歲起」。";return;}
+    st.startAge=x; st.endAge=y; st.start=fmt(bdayFor(S.birth,x)); st.end=fmt(bdayFor(S.birth,y)-DAY);
+  }else{
+    const a=$("stStart").value, b=$("stEnd").value;
+    if(!parse(a)||!parse(b)){m.textContent="請填寫開始與結束日期。";return;}
+    if(parse(b)<parse(a)){m.textContent="結束日期要晚於開始日期。";return;}
+    st.start=a; st.end=b;
+  }
+  S.stages.push(st);
   $("stDomain").value="";
-  $("stName").value="";$("stStart").value="";$("stEnd").value="";m.textContent=`已加入「${n}」。`;
+  $("stName").value="";$("stStart").value="";$("stEnd").value="";$("stAgeFrom").value="";$("stAgeTo").value="";m.textContent=`已加入「${n}」。`;
   pickedSwatch=(pickedSwatch+1)%SWATCHES.length;[...sw.children].forEach((x,j)=>x.setAttribute("aria-pressed",j===pickedSwatch?"true":"false"));
   touch();
 };
@@ -558,10 +774,14 @@ $("btnEdu").onclick=()=>{
   $("stMsg").textContent="已依出生日期帶入學制：9 月 2 日前出生者於滿 6 歲當年入學，各階段以學年度（8/1 – 7/31）銜接。可再刪改。";
   touch();
 };
+$("jKind").addEventListener("change",saveJournal);
+$("jLine").addEventListener("input",saveJournal);
+$("jClear").onclick=()=>{ $("jKind").value=""; $("jLine").value=""; saveJournal(); $("jMsg").textContent="已清除這週的週誌。"; };
+$("btnNow").onclick=()=>{ const M=model(); if(M.nowCell){ showTip(M.nowCell); $("jKind").focus(); } };
 const EXAMPLES={
-  milestone:["👶 出生","🎒 上小學","🎓 大學畢業","💼 第一份工作","💍 結婚","🍼 孩子出生","🏠 買下第一間房","📜 取得專業證照","🎖️ 升任主管","🌅 退休"],
-  special:["✈️ 第一次出國","🚚 搬家","🐶 迎接毛小孩","🎤 第一次上台演講","🌏 打工度假","🤝 遇見重要的朋友","🧘 開始規律運動","🌿 為自己安排一次休假","💬 開始找人談談心事","🕯️ 告別摯愛的家人"],
-  landmark:["🏔️ 完成百岳","🌍 環遊世界","🎓 取得碩士學位","💰 存到第一桶金","🏡 搬到理想的城市","🗣️ 學會第二外語","📖 寫完一本書","🎉 孩子成年","🏅 跑完全程馬拉松","🌅 提早退休"]
+  milestone:["🎓 大學畢業","💍 結婚","🏠 買下第一間房"],
+  special:["✈️ 第一次出國","💬 開始找人談心事","🕯️ 告別摯愛家人"],
+  landmark:["🌍 環遊世界","🏅 跑完全馬","🌅 退休"]
 };
 (function(){
   const box=$("exChips");
@@ -570,103 +790,168 @@ const EXAMPLES={
     const l=document.createElement("span"); l.className="lbl"; const i=document.createElement("i"); i.style.background=`var(--${type})`;
     l.appendChild(i); l.appendChild(document.createTextNode(TYPE_LABEL[type]+"的例子")); g.appendChild(l);
     list.forEach(name=>{const b=document.createElement("button");b.type="button";b.className="chip";b.textContent=name;
-      b.onclick=()=>{$("evName").value=name;$("evType").value=type;$("evMsg").textContent="已帶入，請選擇日期後按「加入事件」。";$("evDate").focus();};
+      b.onclick=()=>{$("evName").value=name;$("evType").value=type;$("evMsg").textContent=evAge?"已帶入，請填寫年紀後按「加入事件」。":"已帶入，請選擇日期後按「加入事件」。";(evAge?$("evAge"):$("evDate")).focus();};
       g.appendChild(b);});
     box.appendChild(g);
   });
 })();
 $("btnEvent").onclick=()=>{
-  const n=$("evName").value.trim(), d=$("evDate").value, t=$("evType").value, m=$("evMsg");
+  const n=$("evName").value.trim(), t=$("evType").value, m=$("evMsg");
   if(!n){m.textContent="請輸入事件名稱。";return;}
-  if(!parse(d)){m.textContent="請選擇日期。";return;}
-  if(parse(d)<parse(S.birth)){m.textContent="日期早於出生日期。";return;}
-  S.events.push({name:n,date:d,type:t,approx:$("evApprox").checked});
-  $("evName").value="";$("evDate").value="";$("evApprox").checked=false;m.textContent=`已加入「${n}」。`;
+  if(evAge){
+    const a=ageNum($("evAge").value), seg=$("evSeg").value;
+    if(a==null){m.textContent="請填寫年紀（0 到 120 的整數）。";return;}
+    if(a>=S.years){m.textContent=`年紀超出預計年數（${S.years} 歲），請調整年紀或預計年數。`;return;}
+    S.events.push({name:n,type:t,age:a,seg,approx:true,date:ageToDate(S.birth,a,seg)});
+  }else{
+    const d=$("evDate").value;
+    if(!parse(d)){m.textContent="請選擇日期。";return;}
+    if(parse(d)<parse(S.birth)){m.textContent="日期早於出生日期。";return;}
+    S.events.push({name:n,date:d,type:t,approx:$("evApprox").checked});
+  }
+  $("evName").value="";$("evDate").value="";$("evAge").value="";$("evSeg").value="mid";$("evApprox").checked=false;m.textContent=`已加入「${n}」。`;
   touch();
 };
 $("btnClear").onclick=function(){
   if(this.dataset.armed!=="1"){this.dataset.armed="1";this.textContent="再按一次確認清空";setTimeout(()=>{this.dataset.armed="";this.textContent="清空所有內容，從頭開始";},4000);return;}
   this.dataset.armed="";this.textContent="清空所有內容，從頭開始";
-  S.name="";S.stages=[];S.events=[];S.vision="";$("inName").value="";$("inVision").value="";
+  S.name="";S.stages=[];S.events=[];S.vision="";S.journal={};$("inName").value="";$("inVision").value="";
   $("stMsg").textContent="";$("evMsg").textContent="";
   touch();
 };
 
 /* ---------- export ---------- */
-async function buildPng(){
-  try{await document.fonts.load('700 40px "LXGW WenKai TC"');await document.fonts.load('400 20px "Noto Sans TC"');await document.fonts.load('400 20px "IBM Plex Mono"');}catch(e){}
+async function buildPdf(){
+  try{await document.fonts.load('700 40px "LXGW WenKai TC"');await document.fonts.load('400 20px "Noto Sans TC"');await document.fonts.load('700 20px "Noto Sans TC"');await document.fonts.load('400 20px "IBM Plex Mono"');}catch(e){}
   const M=model(), P=palette(true);
-  const W=2480, mg=150, labelW=70;
-  const cell=Math.floor((W-2*mg-labelW)/52*0.8), gap=Math.floor((W-2*mg-labelW)/52)-cell;
-  const step=cell+gap;
-  // 以終為始：願景文字斷行
-  const vt=(S.vision||"").trim(); const vLines=[];
-  if(vt){const mc=document.createElement("canvas").getContext("2d"); mc.font='400 38px "LXGW WenKai TC",serif';
-    let cur=""; for(const ch of vt){ if(mc.measureText(cur+ch).width>W-2*mg-60){vLines.push(cur);cur=ch;} else cur+=ch; } if(cur)vLines.push(cur);}
-  const titleH=260+(vLines.length? 70+vLines.length*54 : 0), gridTop=mg+titleH+cell*2;
-  const gridH=M.N*step+Math.floor((M.N-1)/10)*gap*2;
-  const hideEv=$("optHideEv").checked, withQs=$("optQs").checked;
-  const evs=hideEv?[]:[...S.events].sort((x,y)=>parse(x.date)-parse(y.date));
-  const cols=2, lineH=50;
-  // 先畫在足夠高的畫布上，最後依實際內容高度裁切
-  const H=gridTop+gridH+600+Math.ceil(evs.length/cols)*lineH+(withQs?2000:0)+mg;
-  const c=document.createElement("canvas"); c.width=W; c.height=H; const ctx=c.getContext("2d");
-  ctx.fillStyle=P.paper; ctx.fillRect(0,0,W,H);
-  // title
-  ctx.fillStyle=P.ink; ctx.textBaseline="alphabetic"; ctx.textAlign="left";
-  ctx.font='700 96px "LXGW WenKai TC","Kaiti TC",serif';
-  ctx.fillText(S.name?`${S.name}的人生週曆`:"人生週曆",mg,mg+90);
-  ctx.font='400 32px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.muted;
+  const W=2480, H=3508, mg=140;               // A4 直式，300 dpi
+  const pages=[];
+  const newPage=()=>{const c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");x.fillStyle=P.paper;x.fillRect(0,0,W,H);x.textAlign="left";pages.push(c);return x;};
+  const title=S.name?`${S.name}的人生週曆`:"人生週曆";
+  let ctx=newPage();
+
+  /* ---- 第 1 頁：標題、以終為始、整張格子、圖例 ---- */
+  ctx.textBaseline="alphabetic"; ctx.fillStyle=P.ink;
+  ctx.font='700 84px "LXGW WenKai TC","Kaiti TC",serif'; ctx.fillText(title,mg,mg+76);
   const left=Math.max(0,M.total-M.lived);
-  ctx.fillText(`出生 ${fmt(M.G.b,"/")}　·　以 ${S.years} 歲計，共 ${M.total.toLocaleString()} 週　·　已走過 ${M.lived.toLocaleString()} 週，還有 ${left.toLocaleString()} 週由自己決定怎麼用`,mg,mg+150);
-  ctx.font='400 26px "IBM Plex Mono",monospace';
-  ctx.fillText(`製作日期 ${fmt(TODAY,"/")}　→ 週數　↓ 年齡`,mg,mg+200);
-  if(vLines.length){
-    const top=mg+240, h=50+vLines.length*54;
+  ctx.font='400 28px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.muted;
+  ctx.fillText(`出生 ${fmt(M.G.b,"/")}　·　以 ${S.years} 歲計，共 ${M.total.toLocaleString()} 週　·　已走過 ${M.lived.toLocaleString()} 週，還有 ${left.toLocaleString()} 週由自己決定怎麼用`,mg,mg+130);
+  ctx.font='400 24px "IBM Plex Mono",monospace';
+  ctx.fillText(`製作日期 ${fmt(TODAY,"/")}　→ 週數　↓ 年齡`,mg,mg+174);
+  let headerBottom=mg+190;
+  const vt=(S.vision||"").trim();
+  if(vt){
+    ctx.font='400 34px "LXGW WenKai TC",serif';
+    const lines=[]; let cur=""; for(const ch of vt){ if(ctx.measureText(cur+ch).width>W-2*mg-64){lines.push(cur);cur=ch;} else cur+=ch; } if(cur)lines.push(cur);
+    const top=mg+204, h=46+lines.length*48;
     ctx.fillStyle="#eef2f1"; ctx.fillRect(mg,top,W-2*mg,h);
     ctx.fillStyle=P.landmark; ctx.fillRect(mg,top,8,h);
-    ctx.fillStyle=P.muted; ctx.font='400 24px "Noto Sans TC",sans-serif';
-    ctx.fillText(`以終為始｜${S.visionAge} 歲回頭看時，我希望看見`,mg+32,top+38);
-    ctx.fillStyle=P.ink; ctx.font='400 38px "LXGW WenKai TC",serif';
-    vLines.forEach((l,i)=>ctx.fillText(l,mg+32,top+38+54*(i+1)));
+    ctx.fillStyle=P.muted; ctx.font='400 22px "Noto Sans TC",sans-serif';
+    ctx.fillText(`以終為始｜${S.visionAge} 歲回頭看時，我希望看見`,mg+32,top+34);
+    ctx.fillStyle=P.ink; ctx.font='400 34px "LXGW WenKai TC",serif';
+    lines.forEach((l,i)=>ctx.fillText(l,mg+32,top+34+48*(i+1)));
+    headerBottom=top+h;
   }
-  const yEnd=drawGrid(ctx,M,P,mg+labelW,gridTop,cell,gap,`400 ${Math.round(cell*0.9)}px "IBM Plex Mono",monospace`);
-  // legend
-  ctx.textAlign="left";
-  let y=yEnd+80; let x=mg; ctx.font='400 28px "Noto Sans TC",sans-serif'; ctx.textBaseline="middle";
-  ctx.fillStyle=P.ink; ctx.fillText("實心＝已走過　空心＝未來",x,y); x+=ctx.measureText("實心＝已走過　空心＝未來").width+60;
-  const items=[[P.lived,S.mode==="domain"?"已走過（未指定領域）":"已走過（未標階段）"],[P.now,"本週"],[P.milestone,"里程碑"],[P.special,"特殊事件"],[P.landmark,"未來地標"]].concat(legendItems());
-  for(const [col,txt] of items){const w=ctx.measureText(txt).width+80; if(x+w>W-mg){x=mg;y+=50;} ctx.fillStyle=col;ctx.fillRect(x,y-14,28,28);ctx.fillStyle=P.ink;ctx.fillText(txt,x+40,y);x+=w;}
+  // 圖例先排版，才知道要留多少高度
+  ctx.font='400 26px "Noto Sans TC",sans-serif';
+  const legend=[[null,"實心＝已走過　空心＝未來"],[P.lived,S.mode==="domain"?"已走過（未指定任務）":"已走過（未標階段）"],[P.now,"本週"],[P.milestone,"里程碑"],[P.special,"特殊事件"],[P.landmark,"未來地標"]].concat(legendItems());
+  const legRows=[[]]; let lx=0;
+  for(const it of legend){const w=ctx.measureText(it[1]).width+(it[0]?40:0)+44; if(lx+w>W-2*mg&&legRows[legRows.length-1].length){legRows.push([]);lx=0;} legRows[legRows.length-1].push([it,lx]); lx+=w;}
+  const legendH=legRows.length*44;
+  // 格子依剩餘空間縮放，整張放在同一頁
+  const labelW=64, y0=headerBottom+92;
+  const availH=H-mg-legendH-56-y0;
+  const decGaps=Math.floor((M.N-1)/10);
+  const step=Math.floor(Math.min(availH/(M.N+decGaps*0.4),(W-2*mg-labelW)/52));
+  const cell=Math.round(step*0.8), gap=step-cell;
+  const x0=Math.round((W-(labelW+52*step))/2)+labelW;
+  const yEnd=drawGrid(ctx,M,P,x0,y0,cell,gap,`400 ${Math.max(20,Math.round(cell*0.85))}px "IBM Plex Mono",monospace`);
+  ctx.textAlign="left"; ctx.textBaseline="middle"; ctx.font='400 26px "Noto Sans TC",sans-serif';
+  let ly=yEnd+56;
+  for(const row of legRows){ for(const [[col,txt],ox] of row){ const x=mg+ox; if(col){ctx.fillStyle=col;ctx.fillRect(x,ly-13,26,26);ctx.fillStyle=P.ink;ctx.fillText(txt,x+38,ly);} else {ctx.fillStyle=P.ink;ctx.fillText(txt,x,ly);} } ly+=44; }
+
+  /* ---- 第 2 頁起：重要事件、反思題目（放不下就自動換頁） ---- */
+  const hideEv=$("optHideEv").checked, withQs=$("optQs").checked;
+  const evs=hideEv?[]:[...S.events].sort((x,y)=>parse(x.date)-parse(y.date));
+  const withPie=S.mode==="domain";
+  const withJ=$("optJournal").checked&&Object.keys(S.journal||{}).length>0;
+  if(!evs.length&&!withQs&&!withPie&&!withJ) return makePdf(pages);
+  let y=0;
+  const contPage=()=>{ ctx=newPage(); ctx.textBaseline="alphabetic"; ctx.fillStyle=P.muted; ctx.font='400 24px "Noto Sans TC",sans-serif';
+    ctx.fillText(`${title}（第 ${pages.length} 頁）`,mg,mg+20); ctx.strokeStyle=P.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(mg,mg+44); ctx.lineTo(W-mg,mg+44); ctx.stroke(); y=mg+70; };
+  const ensure=h=>{ if(y+h>H-mg) contPage(); };
+  contPage();
+  if(withPie){
+    const st=taskStats(), sl=pieSlices(st), r=230, pcx=mg+r+10, pcy=y+110+r;
+    ctx.textBaseline="alphabetic"; ctx.textAlign="left"; ctx.font='700 38px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink;
+    ctx.fillText(`已走過的 ${st.total.toLocaleString()} 週，花在哪些人生任務`,mg,y+50);
+    sl.forEach(x=>{ctx.beginPath();ctx.moveTo(pcx,pcy);ctx.arc(pcx,pcy,r,x.a0-Math.PI/2,x.a1-Math.PI/2);ctx.closePath();ctx.fillStyle=x.color;ctx.fill();ctx.strokeStyle=P.paper;ctx.lineWidth=5;ctx.stroke();});
+    let ty=pcy-r+30; const tx=pcx+r+90;
+    ctx.textBaseline="middle";
+    st.keys.concat("未指定").forEach(k=>{ const v=st.lived[k]; if(k==="未指定"&&!v) return;
+      ctx.fillStyle=k==="未指定"?UNSET_COLOR:DOMAINS[k]; ctx.fillRect(tx,ty-15,30,30);
+      ctx.fillStyle=P.ink; ctx.font='400 32px "Noto Sans TC",sans-serif'; ctx.fillText(k,tx+48,ty);
+      ctx.font='400 30px "IBM Plex Mono",monospace'; ctx.fillText(`${v.toLocaleString()} 週`,tx+260,ty);
+      ctx.fillText(st.total?(v/st.total*100).toFixed(1)+"%":"–",tx+520,ty); ty+=62; });
+    const planned=st.keys.filter(k=>st.plan[k]).map(k=>`${k} ${st.plan[k].toLocaleString()} 週`);
+    if(planned.length){ctx.fillStyle=P.muted;ctx.font='400 26px "Noto Sans TC",sans-serif';ctx.fillText(`未來已規劃：${planned.join("、")}`,tx,ty+10);}
+    y=pcy+r+40;
+  }
   if(evs.length){
-    y+=80; ctx.font='700 34px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink; ctx.fillText("重要事件",mg,y); y+=56;
-    const colW=(W-2*mg)/cols; ctx.font='400 26px "Noto Sans TC",sans-serif';
-    evs.forEach((e,i)=>{const cx=mg+(i%cols)*colW, cy=y+Math.floor(i/cols)*lineH;
-      const loc=M.G.locate(parse(e.date));
-      ctx.fillStyle=P[e.type]; ctx.fillRect(cx,cy-16,32,32);
-      drawEmojiFit(ctx,emojiOf(e.name),cx,cy-16,32,P.ink);
-      ctx.fillStyle=P.muted; ctx.font='400 24px "IBM Plex Mono",monospace';
-      const tag=`${evDateText(e,"/")}  ${loc?loc.a+"歲 W"+(loc.w+1):""}`; ctx.fillText(tag,cx+46,cy);
-      const tw=ctx.measureText(tag).width; ctx.fillStyle=P.ink; ctx.font='400 26px "Noto Sans TC",sans-serif';
-      let label=e.name; while(ctx.measureText(label).width>colW-tw-90&&label.length>1)label=label.slice(0,-1);
-      if(label!==e.name)label=label.slice(0,-1)+"…"; ctx.fillText(label,cx+46+tw+18,cy);});
-    y+=Math.ceil(evs.length/cols)*lineH;
+    ensure(140); y+=50; ctx.textBaseline="alphabetic"; ctx.font='700 38px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink; ctx.fillText("重要事件",mg,y); y+=40;
+    const cols=2, lineH=54, colW=(W-2*mg)/cols;
+    for(let r=0;r<Math.ceil(evs.length/cols);r++){
+      ensure(lineH); y+=lineH; ctx.textBaseline="middle";
+      for(let c=0;c<cols;c++){ const e=evs[r*cols+c]; if(!e) continue; const cx=mg+c*colW, cy=y-lineH/2;
+        const loc=M.G.locate(parse(e.date));
+        ctx.fillStyle=P[e.type]; ctx.fillRect(cx,cy-17,34,34); drawEmojiFit(ctx,emojiOf(e.name),cx,cy-17,34,P.ink);
+        ctx.textAlign="left"; ctx.textBaseline="middle"; ctx.fillStyle=P.muted; ctx.font='400 24px "IBM Plex Mono",monospace';
+        const tag= e.age!=null ? evDateText(e) : `${evDateText(e,"/")}  ${loc?loc.a+"歲 W"+(loc.w+1):""}`; ctx.fillText(tag,cx+48,cy);
+        const tw=ctx.measureText(tag).width; ctx.fillStyle=P.ink; ctx.font='400 27px "Noto Sans TC",sans-serif';
+        let label=e.name; while(ctx.measureText(label).width>colW-tw-100&&label.length>1)label=label.slice(0,-1);
+        if(label!==e.name)label=label.slice(0,-1)+"…"; ctx.fillText(label,cx+48+tw+18,cy); }
+    }
+    y+=30;
+  }
+  if(withJ){
+    const G=geo(), keys=Object.keys(S.journal).map(Number).sort((a,b)=>a-b);
+    ensure(160); y+=60; ctx.textBaseline="alphabetic"; ctx.textAlign="left"; ctx.font='700 38px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink; ctx.fillText("週誌",mg,y);
+    const {n,c}=journalStats(); y+=44; ctx.font='400 26px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.muted;
+    ctx.fillText(`共 ${n} 週　`+Object.keys(KINDS).map(k=>`${KINDS[k]} ${c[k]}`).join("　"),mg,y); y+=20;
+    for(const k of keys){
+      const j=S.journal[k], a=Math.floor(k/52), w=k%52;
+      ctx.font='400 28px "Noto Sans TC",sans-serif';
+      const lines=[]; let cur=""; for(const ch of (j.line||"")){ if(ctx.measureText(cur+ch).width>W-2*mg-470){lines.push(cur);cur=ch;} else cur+=ch; } if(cur)lines.push(cur);
+      const h=Math.max(1,lines.length)*42+26; ensure(h);
+      y+=42; ctx.fillStyle=P.muted; ctx.font='400 24px "IBM Plex Mono",monospace';
+      ctx.fillText(`${fmt(G.cellStart(a,w),"/")}  ${a}歲 W${w+1}`,mg,y);
+      ctx.fillStyle=P.ink; ctx.font='400 26px "Noto Sans TC",sans-serif'; ctx.fillText(j.kind?KINDS[j.kind]:"—",mg+330,y);
+      ctx.font='400 28px "Noto Sans TC",sans-serif';
+      lines.forEach((l,i)=>ctx.fillText(l,mg+560,y+i*42)); y+=(Math.max(1,lines.length)-1)*42;
+      y+=14; ctx.strokeStyle=P.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(mg,y); ctx.lineTo(W-mg,y); ctx.stroke();
+    }
+    y+=20;
   }
   if(withQs){
-    y+=70; ctx.font='700 34px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink; ctx.textBaseline="alphabetic";
-    ctx.fillText("看著這張週曆，問問自己",mg,y); y+=30;
+    ensure(140); y+=60; ctx.textBaseline="alphabetic"; ctx.textAlign="left"; ctx.font='700 38px "LXGW WenKai TC",serif'; ctx.fillStyle=P.ink; ctx.fillText("看著這張週曆，慢慢想想",mg,y);
+    y+=44; ctx.font='400 24px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.muted; ctx.fillText("不需要一次回答完，也沒有標準答案。",mg,y);
     for(const [g,qs] of questions()){
-      y+=56; ctx.font='700 26px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.accent||"#2f7d74"; ctx.fillText(g,mg,y);
+      ensure(60+190); y+=64; ctx.font='700 28px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.accent; ctx.fillText(g,mg,y);
       for(const q of qs){
-        y+=52; ctx.font='400 28px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.ink; ctx.fillText("・"+q,mg,y);
+        ensure(190); y+=56; ctx.font='400 28px "Noto Sans TC",sans-serif'; ctx.fillStyle=P.ink; ctx.fillText("・"+q,mg,y);
         ctx.strokeStyle=P.line; ctx.lineWidth=2;
-        for(let l=0;l<2;l++){y+=62; ctx.beginPath(); ctx.moveTo(mg+36,y); ctx.lineTo(W-mg,y); ctx.stroke();}
+        for(let l=0;l<2;l++){y+=64; ctx.beginPath(); ctx.moveTo(mg+36,y); ctx.lineTo(W-mg,y); ctx.stroke();}
       }
     }
   }
-  const finalH=Math.min(H,Math.ceil(y+mg));
-  const out=document.createElement("canvas"); out.width=W; out.height=finalH;
-  out.getContext("2d").drawImage(c,0,0);
-  return await new Promise(r=>out.toBlob(r,"image/png"));
+  return makePdf(pages);
+}
+function makePdf(pages){
+  const {jsPDF}=window.jspdf;
+  const doc=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
+  doc.setProperties({title:S.name?`${S.name}的人生週曆`:"人生週曆"});
+  pages.forEach((c,i)=>{ if(i) doc.addPage("a4","portrait"); doc.addImage(c.toDataURL("image/jpeg",0.93),"JPEG",0,0,210,297,undefined,"FAST"); });
+  return doc.output("blob");
 }
 
 let dl=null;
@@ -684,37 +969,51 @@ async function saveFile(fname,blob,m){
   }
 }
 $("btnPng").onclick=async()=>{
-  const m=$("dlMsg"); const btn=$("btnPng"); btn.disabled=true; m.textContent="正在產生圖檔…";
-  try{ await saveFile(`人生週曆_${S.name||"我"}_${fmt(TODAY,"")}.png`, await buildPng(), m); }
-  catch(e){m.textContent="產生圖檔時出了問題，請再試一次。";}
+  const m=$("dlMsg"); const btn=$("btnPng");
+  if(!window.jspdf){m.textContent="PDF 功能載入失敗，請重新整理頁面後再試。";return;}
+  btn.disabled=true; m.textContent="正在產生 PDF…";
+  try{ await saveFile(`人生週曆_${S.name||"我"}_${fmt(TODAY,"")}.pdf`, await buildPdf(), m); }
+  catch(e){m.textContent="產生 PDF 時出了問題，請再試一次。";}
   btn.disabled=false;
 };
 
 /* ---------- Excel 匯出／匯入 ---------- */
 const TYPE_FROM_LABEL={"里程碑":"milestone","特殊事件":"special","未來地標":"landmark","地標":"landmark","milestone":"milestone","special":"special","landmark":"landmark"};
-const SHEET={info:"基本資料",stages:"人生階段",events:"重要事件",help:"填寫說明"};
+const SHEET={info:"基本資料",stages:"人生階段",events:"重要事件",journal:"每週週誌",help:"填寫說明"};
 function buildWorkbook(){
   const X=window.XLSX, wb=X.utils.book_new();
   const info=[["項目","內容"],["稱呼",S.name||""],["出生日期",S.birth],["預計年數",S.years],
     ["以終為始：回頭看的年紀",S.visionAge],["以終為始：我希望看見",S.vision||""],
-    ["上色方式",S.mode==="domain"?"依人生領域":"依人生階段"],["匯出日期",fmt(TODAY)]];
+    ["上色方式",S.mode==="domain"?"依人生任務":"依人生階段"],["匯出日期",fmt(TODAY)]];
   const ws1=X.utils.aoa_to_sheet(info); ws1["!cols"]=[{wch:24},{wch:60}];
-  const st=[["階段名稱","開始日期","結束日期","人生領域","顏色"]].concat(S.stages.map(s=>[s.name,s.start,s.end,s.domain||"",s.color]));
-  const ws2=X.utils.aoa_to_sheet(st); ws2["!cols"]=[{wch:18},{wch:13},{wch:13},{wch:12},{wch:10}];
-  const ev=[["事件名稱","日期","類型","日期為大約"]].concat([...S.events].sort((a,b)=>parse(a.date)-parse(b.date)).map(e=>[e.name,e.date,TYPE_LABEL[e.type],e.approx?"是":"否"]));
-  const ws3=X.utils.aoa_to_sheet(ev); ws3["!cols"]=[{wch:26},{wch:13},{wch:10},{wch:10}];
+  const SEG_LABEL={early:"前段",mid:"中段",late:"後段"};
+  const st=[["階段名稱","開始日期","結束日期","開始年紀","結束年紀（不含）","人生任務","顏色"]].concat(S.stages.map(s=>[s.name,s.start,s.end,s.startAge??"",s.endAge??"",s.domain||"",s.color]));
+  const ws2=X.utils.aoa_to_sheet(st); ws2["!cols"]=[{wch:18},{wch:13},{wch:13},{wch:10},{wch:16},{wch:12},{wch:10}];
+  const ev=[["事件名稱","日期","年紀","那一年的","類型","日期為大約"]].concat([...S.events].sort((a,b)=>parse(a.date)-parse(b.date)).map(e=>[e.name,e.date,e.age??"",e.age!=null?SEG_LABEL[e.seg||"mid"]:"",TYPE_LABEL[e.type],e.approx?"是":"否"]));
+  const ws3=X.utils.aoa_to_sheet(ev); ws3["!cols"]=[{wch:26},{wch:13},{wch:8},{wch:10},{wch:10},{wch:10}];
   const help=[["填寫說明"],
     ["1. 這個檔案可以匯入「人生週曆」網頁，繼續編輯。請不要更改工作表名稱與第一列的欄位名稱。"],
     ["2. 日期請填 YYYY-MM-DD，例如 2015-02-10。也可以使用 Excel 的日期格式。"],
     ["3. 「重要事件」的類型只能填：里程碑、特殊事件、未來地標。"],
     ["4. 「日期為大約」填「是」或「否」，空白視為「否」。"],
-    ["5. 「人生領域」可留空，或填：" + Object.keys(DOMAINS).join("、") + "。"],
+    ["5. 「人生任務」可留空，或填：" + Object.keys(DOMAINS).join("、") + "。"],
     ["6. 「顏色」可留空，網頁會自動配色；或填色碼，例如 #9fd3c7。"],
     ["7. 事件名稱開頭可以放表情符號，例如「🎓 大學畢業」，匯入後會顯示在格子裡。"],
-    ["8. 「上色方式」填：依人生階段，或依人生領域。"]];
+    ["8. 「上色方式」填：依人生階段，或依人生任務。"],
+    ["9. 記不清日期時，可以改填年紀：人生階段填「開始年紀」與「結束年紀（不含）」，例如 18 與 22，代表 18 歲生日到 22 歲生日的前一天；重要事件填「年紀」，「那一年的」可填前段、中段或後段，空白視為中段。"],
+    ["10. 填了年紀的列，以年紀為準，日期欄可以留空；匯入時會依出生日期自動換算。"],
+    ["11. 「每週週誌」已列出從本週起的未來 52 週，每週填兩欄即可：「這週主要的樣子」填享受當下、為未來播種、兩者兼具或卡住的週；「這週的一句話」自由書寫。"],
+    ["12. 週誌以「週起始日」對應到週曆上的那一週，請不要修改日期欄。不想寫的週留空即可。"]];
   const ws4=X.utils.aoa_to_sheet(help); ws4["!cols"]=[{wch:90}];
   X.utils.book_append_sheet(wb,ws1,SHEET.info); X.utils.book_append_sheet(wb,ws2,SHEET.stages);
-  X.utils.book_append_sheet(wb,ws3,SHEET.events); X.utils.book_append_sheet(wb,ws4,SHEET.help);
+  // 每週週誌：已寫過的週＋從本週起的未來 52 週空白列
+  const M=model(), G=M.G, nowK=M.nowCell?M.nowCell.a*52+M.nowCell.w:0;
+  const ks=new Set(Object.keys(S.journal||{}).map(Number)); for(let k=nowK;k<nowK+52&&k<M.N*52;k++) ks.add(k);
+  const jr=[["週起始日","週結束日","年紀","第幾週","這週主要的樣子","這週的一句話"]].concat([...ks].sort((a,b)=>a-b).map(k=>{
+    const a=Math.floor(k/52), w=k%52, j=(S.journal||{})[k]||{};
+    return [fmt(G.cellStart(a,w)),fmt(G.cellEnd(a,w)),a,w+1,j.kind?KINDS[j.kind].replace(/^\S+\s/,""):"",j.line||""]; }));
+  const ws5=X.utils.aoa_to_sheet(jr); ws5["!cols"]=[{wch:12},{wch:12},{wch:6},{wch:7},{wch:16},{wch:60}];
+  X.utils.book_append_sheet(wb,ws3,SHEET.events); X.utils.book_append_sheet(wb,ws5,SHEET.journal); X.utils.book_append_sheet(wb,ws4,SHEET.help);
   return wb;
 }
 function cellToISO(v){
@@ -725,6 +1024,12 @@ function cellToISO(v){
   if(!m) return null; const iso=`${m[1]}-${m[2].padStart(2,"0")}-${m[3].padStart(2,"0")}`;
   const t=parse(iso); return (t!=null && fmt(t)===iso) ? iso : null;
 }
+/* 部分試算表軟體以「&#數字;」儲存表情符號，讀取時會掉位元；把它修回原本的表情符號 */
+function fixEmoji(s){
+  s=String(s??"");
+  s=s.replace(/[-]/g,c=>String.fromCodePoint(c.charCodeAt(0)+0x10000));
+  return s.replace(/^[豈-﫿](?=\s)/,c=>String.fromCodePoint(c.charCodeAt(0)+0x10000));
+}
 function readWorkbook(wb){
   const X=window.XLSX, skipped=[];
   const rows=name=>wb.Sheets[name]?X.utils.sheet_to_json(wb.Sheets[name],{defval:"",raw:true}):null;
@@ -733,31 +1038,50 @@ function readWorkbook(wb){
   const kv={}; info.forEach(r=>{kv[String(r["項目"]).trim()]=r["內容"];});
   const birth=cellToISO(kv["出生日期"]);
   if(!birth||parse(birth)>TODAY) throw new Error("「基本資料」的出生日期無法辨識，請填 YYYY-MM-DD，例如 1990-05-20。");
-  const N={name:String(kv["稱呼"]||"").trim().slice(0,30),birth,
+  const N={name:fixEmoji(kv["稱呼"]).trim().slice(0,30),birth,
     years:Math.min(120,Math.max(60,Math.round((+kv["預計年數"]||90)/5)*5)),
     visionAge:Math.min(100,Math.max(30,Math.round((+kv["以終為始：回頭看的年紀"]||80)/5)*5)),
-    vision:String(kv["以終為始：我希望看見"]||"").slice(0,80),
-    mode:String(kv["上色方式"]).includes("領域")?"domain":"stage",stages:[],events:[]};
+    vision:fixEmoji(kv["以終為始：我希望看見"]).slice(0,80),
+    mode:/領域|任務/.test(String(kv["上色方式"]))?"domain":"stage",stages:[],events:[]};
   st.forEach((r,i)=>{
-    const name=String(r["階段名稱"]||"").trim(), a=cellToISO(r["開始日期"]), b=cellToISO(r["結束日期"]);
-    if(!name&&!a&&!b) return;
-    if(!name||!a||!b||parse(b)<parse(a)){skipped.push(`人生階段第 ${i+2} 列`);return;}
-    const col=String(r["顏色"]||"").trim(); const dom=String(r["人生領域"]||"").trim();
-    N.stages.push({name:name.slice(0,20),start:a,end:b,color:/^#[0-9a-f]{6}$/i.test(col)?col:SWATCHES[N.stages.length%SWATCHES.length],domain:DOMAINS[dom]?dom:""});
+    const name=fixEmoji(r["階段名稱"]).trim(), a=cellToISO(r["開始日期"]), b=cellToISO(r["結束日期"]);
+    const x=ageNum(r["開始年紀"]), y=ageNum(r["結束年紀（不含）"]);
+    const byAge=x!=null&&y!=null&&y>x;
+    if(!name&&!a&&!b&&x==null&&y==null) return;
+    if(!name||(!byAge&&(!a||!b||parse(b)<parse(a)))){skipped.push(`人生階段第 ${i+2} 列`);return;}
+    const col=String(r["顏色"]||"").trim(); const dom=normTask(r["人生任務"]||r["人生領域"]);
+    const stg={name:name.slice(0,20),start:a,end:b,color:/^#[0-9a-f]{6}$/i.test(col)?col:SWATCHES[N.stages.length%SWATCHES.length],domain:dom};
+    if(byAge){stg.startAge=x;stg.endAge=y;}
+    N.stages.push(stg);
   });
   ev.forEach((r,i)=>{
-    const name=String(r["事件名稱"]||"").trim(), d=cellToISO(r["日期"]), type=TYPE_FROM_LABEL[String(r["類型"]||"").trim()];
-    if(!name&&!d) return;
-    if(!name||!d||!type||parse(d)<parse(birth)){skipped.push(`重要事件第 ${i+2} 列`);return;}
-    N.events.push({name:name.slice(0,30),date:d,type,approx:String(r["日期為大約"]).trim()==="是"});
+    const name=fixEmoji(r["事件名稱"]).trim(), d=cellToISO(r["日期"]), type=TYPE_FROM_LABEL[String(r["類型"]||"").trim()];
+    const age=ageNum(r["年紀"]); const segTxt=String(r["那一年的"]||"").trim();
+    if(!name&&!d&&age==null) return;
+    if(!name||!type||(age==null&&(!d||parse(d)<parse(birth)))||(age!=null&&age>=N.years)){skipped.push(`重要事件第 ${i+2} 列`);return;}
+    if(age!=null) N.events.push({name:name.slice(0,30),type,age,seg:segTxt.startsWith("前")?"early":segTxt.startsWith("後")?"late":"mid",approx:true});
+    else N.events.push({name:name.slice(0,30),date:d,type,approx:String(r["日期為大約"]).trim()==="是"});
   });
+  // 每週週誌（舊檔沒有這張工作表也能匯入）
+  N.journal={};
+  const jr=rows(SHEET.journal)||[];
+  jr.forEach((r,i)=>{
+    const kind=kindFromText(r["這週主要的樣子"]), line=fixEmoji(r["這週的一句話"]).trim().slice(0,100);
+    if(!kind&&!line) return;
+    let c=locateFor(N.birth,parse(cellToISO(r["週起始日"])));
+    if(!c){ const a=ageNum(r["年紀"]), w=Number(r["第幾週"]); if(a!=null&&Number.isInteger(w)&&w>=1&&w<=52) c={a,w:w-1}; }
+    if(!c||c.a>=N.years){skipped.push(`每週週誌第 ${i+2} 列`);return;}
+    N.journal[c.a*52+c.w]={kind,line};
+  });
+  recomputeAges(N);
   return {N,skipped};
 }
 function applyState(N){
   S=N; isSample=false;
   $("inName").value=S.name; $("inBirth").value=S.birth; $("inYears").value=S.years;
   $("inVisionAge").value=S.visionAge; $("inVision").value=S.vision;
-  renderAll();
+  selCell=null; renderAll();
+  const M=model(); if(M.nowCell) showTip(M.nowCell);
 }
 $("btnXlsx").onclick=async()=>{
   const m=$("xlMsg");
@@ -774,7 +1098,7 @@ $("fileXlsx").addEventListener("change",async e=>{
   try{
     const wb=window.XLSX.read(await f.arrayBuffer(),{type:"array",cellDates:true});
     const {N,skipped}=readWorkbook(wb); applyState(N);
-    m.textContent=`已匯入 ${N.stages.length} 個階段、${N.events.length} 個事件。`+(skipped.length?`以下資料無法辨識，已略過：${skipped.join("、")}。`:"");
+    m.textContent=`已匯入 ${N.stages.length} 個階段、${N.events.length} 個事件、${Object.keys(N.journal).length} 週週誌。`+(skipped.length?`以下資料無法辨識，已略過：${skipped.join("、")}。`:"");
   }catch(err){ m.textContent = err&&err.message&&/工作表|出生日期/.test(err.message) ? err.message : "無法讀取這個檔案。請確認是從這個網頁匯出的 Excel 檔（.xlsx）。"; }
 });
 
